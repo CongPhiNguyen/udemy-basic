@@ -1,0 +1,61 @@
+body {
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+
+.divider {
+  border: 4px solid black;
+}
+
+.main-title {
+  text-align: center;
+  background-color: #f7f7f7;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin: 18px;
+}
+
+.boot-img {
+  width: 250px;
+  height: 250px;
+}
+
+.price {
+  margin: 24px 0;
+  font-size: 24px;
+}
+
+.shipping {
+  color: #777;
+  text-transform: uppercase;
+  margin: 12px 0;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.more-info {
+  color: black;
+}
+
+.more-info:hover {
+  text-decoration: none;
+}
+
+.product-detail-title {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.product-detail-list {
+  list-style: square;
+}
+.button-add-cart {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 20px;
+  background-color: #000;
+  border: none;
+}
+.button-add-cart:hover {
+  background-color: #fff;
+  color: #000;
+}
