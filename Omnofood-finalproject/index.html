@@ -11,6 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
@@ -84,25 +86,163 @@
         <h2 class="des">
           Your daily dose of health in 3 simple steps
         </h4>
-        <div class="step-by-step">
+        <div class="step-by-step step-1">
           <div class="step-concrete">
             <div class="step-content">
               <p class="step-number">01</p>
               <p class="title">Tell us what you like (and what not)</p>
               <p class="des">Never again waste time thinking about what to eat! Omnifood AI will create a 100% personalized weekly meal plan just for you. It makes sure you get all the nutrients and vitamins you need, no matter what diet you follow!</p>
             </div>
-            <div class="img-container">
-              <img src="./assets/img/app/app-screen-1.png" alt="" class="step-img">
-              <div class="bg-screen">
-                <div class="circle-1"></div>
-                <div class="circle-2"></div>
+            <div class="step-img-container">
+              <div class="img-container">
+                <div class="bg-screen">
+                  <div class="circle-2"></div>
+                  <div class="circle-1"></div>
+                </div>
+                <img src="./assets/img/app/app-screen-1.png" alt="" class="step-img">
               </div>
+            </div>
+            
+
+            
+          </div>
+        </div>
+
+        <div class="step-by-step">
+          <div class="step-concrete">
+            <div class="step-img-container step-img-container-2">
+              <div class="img-container">
+                <div class="bg-screen bg-screen-2">
+                  <div class="circle-2"></div>
+                  <div class="circle-1"></div>
+                </div>
+                <img src="./assets/img/app/app-screen-2.png" alt="" class="step-img step-img-2">
+              </div>
+            </div>
+            <div class="step-content">
+              <p class="step-number">02</p>
+              <p class="title">Approve your weekly meal plan</p>
+              <p class="des">Once per week, approve the meal plan generated for you by Omnifood AI. You can change ingredients, swap entire meals, or even add your own recipes.</p>
             </div>
 
             
           </div>
         </div>
+        <div class="step-by-step">
+          <div class="step-concrete">
+            <div class="step-content">
+              <p class="step-number">03</p>
+              <p class="title">Receive meals at convenient time</p>
+              <p class="des">Best chefs in town will cook your selected meal every day, and we will deliver it to your door whenever works best for you. You can change delivery schedule and address daily!</p>
+            </div>
+            <div class="step-img-container">
+              <div class="img-container">
+                <div class="bg-screen">
+                  <div class="circle-2"></div>
+                  <div class="circle-1"></div>
+                </div>
+                <img src="./assets/img/app/app-screen-3.png" alt="" class="step-img">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="meal">
+        <p class="sub-title">meals</p>
+        <p class="title">Omnifood AI chooses from 5,000+ recipes</p>
+        <div class="recipe-container">
+          <div class="recipe-box">
+            <img src="./assets/img/meals/meal-1.jpg" alt="" class="recipe-img">
+            <div class="recipe-info">
+              <p class="recipe-title">Vegetarian</p>
+              <h5 class="recipe-name">Japanese Gyozas</h5>
+              <ul class="recipe-detail">
+                <li class="detail-item">
+                  <span class="iconify detail-item-icon" data-icon="akar-icons:fire"></span>
+                  <p><span class="make-bold">650</span> calories</p>
+                </li>
+                <li class="detail-item">
+                  <span class="iconify detail-item-icon" data-icon="ep:knife-fork"></span>
+                  <p>NutriScore ® <span class="make-bold">74</span></p>
+                </li>
+                <li class="detail-item">
+                  <span class="iconify detail-item-icon" data-icon="akar-icons:star"></span>
+                  <p><span class="make-bold">4.9</span> rating (537)</p>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+          <div class="recipe-box">
+            <img src="./assets/img/meals/meal-2.jpg" alt="" class="recipe-img">
+            <div class="recipe-info">
+              <p class="recipe-title">Vegan</p>
+              <p class="recipe-title">Paleo</p>
+
+              <h5 class="recipe-name">Avocado Salad</h5>
+              <ul class="recipe-detail">
+                <li class="detail-item">
+                  <span class="iconify detail-item-icon" data-icon="akar-icons:fire"></span>
+                  <p><span class="make-bold">400</span> calories</p>
+                </li>
+                <li class="detail-item">
+                  <span class="iconify detail-item-icon" data-icon="ep:knife-fork"></span>
+                  <p>NutriScore ® <span class="make-bold">92</span></p>
+                </li>
+                <li class="detail-item">
+                  <span class="iconify detail-item-icon" data-icon="akar-icons:star"></span>
+                  <p><span class="make-bold">4.8</span> rating (441)</p>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+          <div class="recipe-check-list">
+            <div class="check-title">Works with any diet</div>
+            <ul class="check-list-container">
+              <li class="check-list-item">
+                <span class="iconify check-list-icon" data-icon="akar-icons:check"></span>
+                <div class="item-name">Vegetarian</div>
+              </li>
+              <li class="check-list-item">
+                <span class="iconify check-list-icon" data-icon="akar-icons:check"></span>
+                <div class="item-name">Vegan</div>
+              </li>
+              <li class="check-list-item">
+                <span class="iconify check-list-icon" data-icon="akar-icons:check"></span>
+                <div class="item-name">Pescatarian</div>
+              </li>
+              <li class="check-list-item">
+                <span class="iconify check-list-icon" data-icon="akar-icons:check"></span>
+                <div class="item-name">Gluten-free</div>
+              </li>
+              <li class="check-list-item">
+                <span class="iconify check-list-icon" data-icon="akar-icons:check"></span>
+                <div class="item-name">Lactose-free</div>
+              </li>
+              <li class="check-list-item">
+                <span class="iconify check-list-icon" data-icon="akar-icons:check"></span>
+                <div class="item-name">Keto</div>
+              </li>
+              <li class="check-list-item">
+                <span class="iconify check-list-icon" data-icon="akar-icons:check"></span>
+                <div class="item-name">Paleo</div>
+              </li>
+              <li class="check-list-item">
+                <span class="iconify check-list-icon" data-icon="akar-icons:check"></span>
+                <div class="item-name">Low FODMAP</div>
+              </li>
+              <li class="check-list-item">
+                <span class="iconify check-list-icon" data-icon="akar-icons:check"></span>
+                <div class="item-name">Kid-friendly</div>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="tempt-spacing"></div>
     </main>
 
     <footer></footer>
