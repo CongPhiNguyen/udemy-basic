@@ -10,8 +10,25 @@ body {
   margin-top: 80px;
 }
 
-ul {
+.divider {
+  width: 90%;
+  height: 1px;
+  background-color: rgb(250, 204, 205);
+  margin: auto;
+}
+
+.divider2 {
+  width: 30%;
+  background-color: rgb(204, 229, 250);
+}
+
+label {
   margin-top: 30px;
+  display: block;
+}
+
+ul {
+  margin-top: 10px;
 }
 
 li {
