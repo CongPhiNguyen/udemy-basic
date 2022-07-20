@@ -30,18 +30,18 @@
           </a>
         </div>
         <div>
-          <a class="nav-item" href="">How it works</a>
-          <a class="nav-item" href="">Meals</a>
-          <a class="nav-item" href="">Testimonials</a>
-          <a class="nav-item" href="">Pricing</a>
-          <a class="nav-item" href="">Try for free</a>
+          <a class="nav-item" href="#hero-content-container">How it works</a>
+          <a class="nav-item" href="#meal">Meals</a>
+          <a class="nav-item" href="#testinomial">Testimonials</a>
+          <a class="nav-item" href="#pricing-section">Pricing</a>
+          <a class="nav-item visited" href="">Try for free</a>
         </div>
       </nav>
     </header>
     
 
     <main>
-      <div class="hero-content-container">
+      <section id="hero-content-container">
         <div class="container">
           <div class="hero-content">
             <div class="hero-left-content">
@@ -72,8 +72,8 @@
           </div>
         </div>
         
-      </div>
-      <div class="as-feature-in">
+      </section>
+      <section id="as-feature-in">
         <div class="container">
           <h3 class="title">
             as featured in
@@ -87,8 +87,8 @@
           </div>
         </div>
         
-      </div>
-      <div class="how-it-work">
+      </section>
+      <section id="how-it-work">
         <div class="container">
           <h3 class="title">
             how it works
@@ -155,8 +155,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="meal">
+      </section>
+      <section id="meal">
         <div class="container">
           <p class="sub-title">meals</p>
         <p class="title">Omnifood AI chooses from 5,000+ recipes</p>
@@ -254,8 +254,8 @@
           <a href="#" class="see-all-recipe">See all recipes &rarr;</a>
         </div>
         </div>
-      </div>
-      <div class="testinomial">
+      </section>
+      <section id="testinomial">
         <div class="container testinomial-container">
           <div class="customer-opinion">
             <div class="heading">
@@ -304,9 +304,9 @@
 
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="pricing-section">
+      <section id="pricing-section">
         <div class="container pricing-section-container">
           <p class="pricing-sub-label">pricing</p>
           <p class="pricing-label">Eating well without breaking the bank</p>
@@ -360,34 +360,66 @@
             </li>
             <li class="principle-item">
               <div class="principle-item-icon-container">
-                <span class="iconify principle-item-icon" data-icon="la:infinity"></span>
+                <span class="iconify principle-item-icon" data-icon="carbon:apple"></span>
               </div>
-              <p class="title">Never cook again!</p>
-              <p class="description">Our subscriptions cover 365 days per year, even including major holidays.</p>
+              <p class="title">Local and organic</p>
+              <p class="description">Our cooks only use local, fresh, and organic products to prepare your meals.</p>
             </li>
             <li class="principle-item">
               <div class="principle-item-icon-container">
-                <span class="iconify principle-item-icon" data-icon="la:infinity"></span>
+                <span class="iconify principle-item-icon" data-icon="akar-icons:leaf"></span>
+                
               </div>
-              <p class="title">Never cook again!</p>
-              <p class="description">Our subscriptions cover 365 days per year, even including major holidays.</p>
+              <p class="title">No waste</p>
+              <p class="description">All our partners only use reusable containers to package all your meals.</p>
             </li>
             <li class="principle-item">
+              
               <div class="principle-item-icon-container">
-                <span class="iconify principle-item-icon" data-icon="la:infinity"></span>
+                <span class="iconify principle-item-icon" data-icon="akar-icons:pause"></span>
               </div>
-              <p class="title">Never cook again!</p>
-              <p class="description">Our subscriptions cover 365 days per year, even including major holidays.</p>
+              <p class="title">Pause anytime</p>
+              <p class="description">Going on vacation? Just pause your subscription, and we refund unused days.</p>
             </li>
           </ul>
         </div>
-      </div>
+      </section>
+      
+      <section id="feed-back-section">
+        <div class="container feed-back-section-container">
+          <form action="" class="feed-back-info">
+            <div class="feed-back-heading">
+              <p class="feed-back-title">Get your first meal for free!</p>
+              <p class="feed-back-description">Healthy, tasty and hassle-free meals are waiting for you. Start eating well today. You can cancel or pause anytime. And the first meal is on us!</p>
+            </div>
+            <div class="feed-back-input">
+              <label for="fullName">
+                <p class="label-input">Full Name</p> 
+                <input type="text" id="fullName" name="fullName" class="input">
+              </label>
+              <label for="email">
+                <p class="label-input">Email address</p>
+                <input type="text" id="email" name="email" class="input">
+              </label>
+              <label for="place">
+                <p class="label-input">Where did you hear from us?</p>
+                <input type="text" id="place" name="place" class="input">
+              </label>
+              <input type="submit" value="Sign up now" class="btn-signup">
+            </div>
+          </form>
+          <div class="feed-back-picture-container">
+            <img src="./assets/img/eating.jpg" alt="" class="feed-back-picture">
+          </div>
+        </div>
         
+      </section>
       <div class="tempt-spacing"></div>
     </main>
 
 
-
+    
     <footer></footer>
+    <script src="index.js"></script>
   </body>
 </html>
