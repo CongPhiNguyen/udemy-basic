@@ -48,6 +48,7 @@ const imgElements = linkImageShuffle.map((link) => {
   img.style.overflow = "hidden";
   img.style.display = "block";
   img.style.width = "calc(100% - 40px)";
+  img.loading = "lazy";
   return img;
 });
 
