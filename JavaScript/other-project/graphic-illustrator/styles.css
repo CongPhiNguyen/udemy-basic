@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none !important;
+}
+
 #main-screen {
   background-color: #252525;
   width: 100vw;
@@ -88,6 +92,7 @@
 
 #layer-list .layer {
   opacity: 50%;
+  position: relative;
 }
 
 #layer-list .layer.current {
@@ -95,13 +100,34 @@
   cursor: pointer;
 }
 
+#layer-list .layer .layer-controller-list {
+  border: 1px solid #333;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  background-color: #fff;
+}
+
+#layer-list .layer .layer-controller-list:hover {
+  background-color: #e3e3e3;
+}
+
+/* #layer-list .layer:hover .layer-controller-list {
+  opacity: 100%;
+} */
+
+#layer-list .layer .layer-controller-list .layer-controller-item {
+  font-size: 14px;
+  padding: 2px 6px;
+}
+
 #layer-list .layer:hover {
-  opacity: 80%;
   cursor: pointer;
 }
 
 .layer:hover .layer-view {
   background-color: #e4e4e4;
+  opacity: 80%;
 }
 
 .layer .layer-view {
