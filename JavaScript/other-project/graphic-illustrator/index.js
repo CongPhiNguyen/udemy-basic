@@ -6,13 +6,30 @@ const graphicLayerListDOM = document.querySelector("#graphic-layer-list");
 const MAX_LAYER_ALLOW = 10;
 let currentLayerIndex = 0;
 
-// Disable right click
-window.oncontextmenu = function (e) {
-  e.preventDefault();
-  // console.log(e.target.parentNode);
+class LayerToolList {}
 
-  // Open the right click layer tool
-  const rightClickClasslist = e.target.parentNode.classList.value.split(" ");
+class LayerToolItem {}
+
+const rightClickLayerTool = (layerNumber) => {
+  const listLayerChild = makeChildrenList(layerListDOM);
+  let layerSelect;
+  listLayerChild.forEach((value) => {
+    // console.log(value.classList);
+    if (value.classList.contains(`layer-${layerNumber}`)) {
+      layerSelect = value;
+    }
+  });
+  const layerElement = makeChildrenList(layerSelect);
+  // console.log(layerElement);
+  const thisLayerController = layerElement[layerElement.length - 1];
+
+  if (thisLayerController.classList.contains("hidden"))
+    thisLayerController.classList.remove("hidden");
+  else {
+    thisLayerController.classList.add("hidden");
+  }
+};
+const checkRightClickLayerTool = (rightClickClasslist) => {
   let layerNumber = -1;
   if (rightClickClasslist.includes("layer")) {
     rightClickClasslist.forEach((className) => {
@@ -21,16 +38,15 @@ window.oncontextmenu = function (e) {
       }
     });
   }
-  // console.log("layerNumber", layerNumber);
-  const listLayerChild = makeChildrenList(layerListDOM);
-  const layerElement = makeChildrenList(listLayerChild[layerNumber]);
-
-  const thisLayerController = layerElement[layerElement.length - 1];
-  if (thisLayerController.classList.contains("hidden"))
-    thisLayerController.classList.remove("hidden");
-  else {
-    thisLayerController.classList.add("hidden");
-  }
+  return layerNumber;
+};
+// Disable right click
+window.oncontextmenu = function (e) {
+  e.preventDefault();
+  // Open the right click layer tool
+  const rightClickClasslist = e.target.parentNode.classList.value.split(" ");
+  let layerNumber = checkRightClickLayerTool(rightClickClasslist);
+  if (layerNumber >= 0) rightClickLayerTool(layerNumber);
 };
 
 // Close menu
@@ -154,7 +170,16 @@ const deleteLayer = (layerIndex) => {
   console.log(layerIndex);
   const listLayerTool = makeChildrenList(layerListDOM);
   // console.log(listLayerTool, makeChildrenList(layerListDOM));
-  layerListDOM.removeChild(listLayerTool[layerIndex]);
+  console.log(listLayerTool);
+  // Get element to delete
+  let layerToDelete;
+  listLayerTool.forEach((value) => {
+    // console.log(value.classList);
+    if (value.classList.contains(`layer-${layerIndex}`)) {
+      layerToDelete = value;
+    }
+  });
+  layerListDOM.removeChild(layerToDelete);
 };
 
 createLayerDOM.onclick = () => createNewLayer();
