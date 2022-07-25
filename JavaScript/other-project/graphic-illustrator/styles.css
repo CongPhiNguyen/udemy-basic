@@ -1,0 +1,73 @@
+#main-screen {
+  background-color: #252525;
+  width: 100vw;
+  height: 100vh;
+}
+
+#main-screen #main-graphic {
+  background-color: #fff;
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  /* center the div */
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#tool-container {
+  background-color: #fff;
+  position: absolute;
+  top: 20px;
+}
+
+#layer-container {
+  background-color: #fff;
+  position: absolute;
+  padding: 12px;
+  border: 1px solid #333;
+  padding-top: 0;
+}
+
+.divider {
+  width: calc(100% + 10px);
+  margin-left: -5px;
+  margin-bottom: 10px;
+  height: 1px;
+  background-color: #797979;
+}
+
+#layer-container .title {
+  padding: 10px 0px;
+}
+
+#layer-list {
+}
+
+#layer-create {
+  font-size: 32px;
+  border: 1px solid #333;
+  text-align: center;
+  margin-top: 24px;
+}
+
+#layer-create:hover {
+  cursor: pointer;
+  background-color: #888;
+}
+
+.layer {
+}
+
+.layer .layer-view {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #333;
+}
+
+.layer .layer-title {
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 4px;
+}

@@ -37,8 +37,17 @@ overlay.onclick = () => {
 
 document.onkeypress = e => {
   // if(e.key)clg
-  console.log(e.code);
-  if (e.code == 'KeyC') {
+  // e = e || window.event;
+  // console.log(e);
+  // console.log(e.code);
+  if (e.code === 'KeyC') {
+    closeModal();
+  }
+};
+
+document.onkeydown = e => {
+  console.log(e.key);
+  if (e.key === 'Escape') {
     closeModal();
   }
 };
