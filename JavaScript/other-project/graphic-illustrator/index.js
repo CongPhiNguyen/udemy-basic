@@ -16,6 +16,22 @@ class LayerToolList {
     this.layerToolListItem = [];
     this.continueIndex = 0;
   }
+  getCurrentLayer = () => {
+    console.log(this.layerToolListItem);
+    let currentLayer;
+    this.layerToolListItem.forEach((val, index) => {
+      console.log(val.layerToolItemDOM);
+      console.log(`layer-${this.currentLayerIndex}`);
+      if (
+        val.layerToolItemDOM.classList.contains(
+          `layer-${this.currentLayerIndex}`
+        )
+      ) {
+        currentLayer = val;
+      }
+    });
+    return currentLayer;
+  };
   createNewLayer = () => {
     let layerToolItem = new LayerToolItem(this.continueIndex);
     // console.log(layerToolItem);
@@ -108,6 +124,7 @@ class LayerToolItem {
 
 class LayerGraphicItem {
   graphicLayerDOM;
+  listShapeDOM;
   constructor(layerIndex) {
     this.createNewLayer(layerIndex);
   }
@@ -135,8 +152,28 @@ class LayerGraphicItem {
     graphicLayerListDOM.removeChild(this.graphicLayerDOM);
     console.log("Delete current layer");
   };
+  // drawShape = () => {
+  //   //Delete all child
+  //   listShapeDOM();
+  // };
+  addShape = () => {
+    let currentShapeDOM = document.createElement("span");
+    currentShapeDOM.classList.add("iconify");
+    currentShapeDOM.setAttribute("data-icon", "bi:triangle");
+    currentShapeDOM.style.position = "absolute";
+    let randomX = Math.round(Math.random() * 600);
+    let randomY = Math.round(Math.random() * 400);
+    let dataHeight = 100;
+    currentShapeDOM.style.left = `${randomX}px`;
+    currentShapeDOM.style.top = `${randomY}px`;
+    currentShapeDOM.setAttribute(`data-height`, `${dataHeight}px`);
+    console.log(this.graphicLayerDOM);
+    const layerView = makeChildrenList(this.graphicLayerDOM)[0];
+    layerView.appendChild(currentShapeDOM);
+  };
 }
 
+class Shape {}
 // Main object
 const layerToolList = new LayerToolList();
 
@@ -213,3 +250,19 @@ const createNewToolLayer = () => {
 createLayerDOM.onclick = () => {
   layerToolList.createNewLayer();
 };
+
+// DRAW
+
+// click draw item
+const drawToolItems = document.querySelectorAll(".draw-tool-item");
+drawToolItems.forEach((val) => {
+  val.onclick = (e) => {
+    console.log(e.target);
+    let currentLayer = layerToolList.getCurrentLayer();
+    // console.log(currentLayer.graphicLayer.graphicLayerDOM);
+    // currentLayer.graphicLayer
+    // let layerView = makeChildrenList(currentLayer.graphicLayer.graphicLayerDOM)[0];
+    // console.log(layerView[0]);
+    currentLayer.graphicLayer.addShape();
+  };
+});

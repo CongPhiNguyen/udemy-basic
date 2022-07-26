@@ -145,3 +145,45 @@
   font-weight: 700;
   margin-top: 4px;
 }
+
+.verticle-divider {
+  height: 40px;
+  width: 1px;
+  background-color: #797979;
+}
+
+.verticle-divider.divider-2 {
+  margin-left: 10px;
+}
+
+#draw-tool-container {
+  position: absolute;
+  left: 100px;
+  background-color: #fff;
+  width: 600px;
+  display: flex;
+}
+
+#draw-tool-container .title {
+  padding: 10px;
+  font-size: 16px;
+}
+
+#draw-tool-container #draw-tool-list {
+  display: flex;
+}
+
+#draw-tool-list .draw-tool-item {
+  display: flex;
+  cursor: pointer;
+}
+
+#draw-tool-list .draw-tool-item:hover {
+  background-color: #e3e3e3;
+}
+
+#draw-tool-list .draw-tool-item .draw-tool-item-icon {
+  line-height: 40px;
+  margin-top: 7px;
+  margin-left: 10px;
+}
