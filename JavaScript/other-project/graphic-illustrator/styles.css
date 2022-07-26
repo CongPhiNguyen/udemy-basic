@@ -25,10 +25,14 @@
 }
 
 #graphic-layer-list {
+  width: 100%;
+  height: 100%;
 }
 
 #graphic-layer-list .graphic-layer {
-  position: relative;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
 #graphic-layer-list .graphic-layer .layer-view {

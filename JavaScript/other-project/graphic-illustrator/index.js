@@ -6,9 +6,139 @@ const graphicLayerListDOM = document.querySelector("#graphic-layer-list");
 const MAX_LAYER_ALLOW = 10;
 let currentLayerIndex = 0;
 
-class LayerToolList {}
+class LayerToolList {
+  layerToolListItem;
+  layerListDOM;
+  continueIndex;
+  currentLayerIndex;
+  constructor() {
+    this.layerListDOM = document.querySelector("#layer-list");
+    this.layerToolListItem = [];
+    this.continueIndex = 0;
+  }
+  createNewLayer = () => {
+    let layerToolItem = new LayerToolItem(this.continueIndex);
+    // console.log(layerToolItem);
+    this.layerListDOM.removeChild(createLayerDOM);
+    this.layerListDOM.appendChild(layerToolItem.layerToolItemDOM);
+    this.layerListDOM.appendChild(createLayerDOM);
+    this.layerToolListItem.push(layerToolItem);
+    this.changeLayerTool(this.continueIndex);
+    this.continueIndex++;
+  };
+  deleteLayer = (layerDOM) => {
+    console.log(layerDOM);
+    this.layerListDOM.removeChild(layerDOM);
+    this.layerToolListItem.forEach((val) => {
+      if (layerDOM.classList == val.layerToolItemDOM.classList) {
+        val.deleteGraphicLayer();
+      }
+    });
+    this.layerToolListItem = this.layerToolListItem.filter((val) => {
+      return layerDOM.classList != val.layerToolItemDOM.classList;
+    });
+  };
+  changeLayerTool = (classIndex) => {
+    this.currentLayerIndex = classIndex;
+    const layerListDOMChild = makeChildrenList(this.layerListDOM);
+    layerListDOMChild.forEach((val, index) => {
+      if (val.classList.contains("current")) {
+        val.classList.remove("current");
+      }
+      if (val.classList.contains(`layer-${classIndex}`)) {
+        val.classList.add("current");
+      }
+    });
+  };
+}
 
-class LayerToolItem {}
+class LayerToolItem {
+  classIndex;
+  graphicLayer;
+  static layerToolItemDOM;
+  constructor(classIndex) {
+    this.classIndex = classIndex;
+    this.createLayerToolItem();
+    this.graphicLayer = new LayerGraphicItem(classIndex);
+  }
+  createLayerToolItem = () => {
+    const newLayer = document.createElement("li");
+    newLayer.classList.add("layer");
+    newLayer.classList.add(`layer-${this.classIndex}`);
+
+    const newLayerView = document.createElement("div");
+    newLayerView.classList.add("layer-view");
+
+    const newLayerTitle = document.createElement("p");
+    newLayerTitle.classList.add("layer-title");
+
+    // Controller
+    const newLayerControllerList = document.createElement("ul");
+    newLayerControllerList.classList.add("layer-controller-list");
+    newLayerControllerList.classList.add("hidden");
+
+    const newLayerController = document.createElement("li");
+    newLayerController.classList.add("layer-controller-item");
+
+    newLayerController.textContent = "Delete";
+
+    newLayerControllerList.appendChild(newLayerController);
+
+    newLayerTitle.textContent = `Layer ${this.classIndex}`;
+    newLayer.appendChild(newLayerView);
+    newLayer.appendChild(newLayerTitle);
+    newLayer.appendChild(newLayerControllerList);
+    newLayer.onclick = (e) => {
+      // console.log(e.target);
+      if (e.target.textContent === "Delete") {
+        layerToolList.deleteLayer(newLayer);
+      } else {
+        // console.log(this.classIndex);
+        layerToolList.changeLayerTool(this.classIndex);
+      }
+    };
+    this.layerToolItemDOM = newLayer;
+    return this.layerToolItemDOM;
+  };
+  deleteGraphicLayer = () => {
+    console.log("classIndex", this.classIndex);
+    this.graphicLayer.delete();
+  };
+}
+
+class LayerGraphicItem {
+  graphicLayerDOM;
+  constructor(layerIndex) {
+    this.createNewLayer(layerIndex);
+  }
+  createNewLayer = (graphicLayerLength) => {
+    const newGraphicLayer = document.createElement("li");
+    newGraphicLayer.classList.add("graphic-layer");
+    newGraphicLayer.style.zIndex = graphicLayerLength;
+
+    const newGraphicLayerView = document.createElement("div");
+    newGraphicLayerView.classList.add("layer-view");
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    // console.log(randomColor);
+    newGraphicLayerView.style.backgroundColor = `#${randomColor}`;
+
+    // const gridList = createGridDOM(800, 500, 20);
+    // gridList.forEach((gridView) => {
+    //   newGraphicLayerView.appendChild(gridView);
+    // });
+    newGraphicLayer.appendChild(newGraphicLayerView);
+    graphicLayerListDOM.appendChild(newGraphicLayer);
+    this.graphicLayerDOM = newGraphicLayer;
+    return newGraphicLayer;
+  };
+  delete = () => {
+    graphicLayerListDOM.removeChild(this.graphicLayerDOM);
+    console.log("Delete current layer");
+  };
+}
+
+// Main object
+const layerToolList = new LayerToolList();
 
 const rightClickLayerTool = (layerNumber) => {
   const listLayerChild = makeChildrenList(layerListDOM);
@@ -59,25 +189,7 @@ const makeChildrenList = (htmlDOM) => {
   return listChild;
 };
 
-// Change layer
-const changeLayerTool = (layerIndex) => {
-  // Reset index
-  currentLayerIndex = layerIndex;
-  // console.log("layerIndex", layerIndex);
-  const layerListDOMChild = makeChildrenList(layerListDOM);
-  // console.log(layerListDOMChild);
-
-  layerListDOMChild.forEach((val, index) => {
-    if (val.classList.contains("current")) {
-      val.classList.remove("current");
-    }
-  });
-  layerListDOMChild[layerIndex].classList.add("current");
-};
 // TODO: changeLayerGraphic
-const changeLayer = () => {
-  changeLayerTool();
-};
 // Create layer
 const createGridDOM = (width, height, gridSize) => {
   let gridDOMList = [];
@@ -92,94 +204,12 @@ const createGridDOM = (width, height, gridSize) => {
   return gridDOMList;
 };
 
-const createNewGraphicLayer = () => {
-  const graphicLayerLength = graphicLayerListDOM.children.length;
-
-  const newGraphicLayer = document.createElement("li");
-  newGraphicLayer.classList.add("graphic-layer");
-  newGraphicLayer.style.zIndex = graphicLayerListDOM.children.length;
-
-  const newGraphicLayerView = document.createElement("div");
-  newGraphicLayerView.classList.add("layer-view");
-  const gridList = createGridDOM(800, 500, 20);
-  gridList.forEach((gridView) => {
-    // gridView.onclick = () => {
-    //   console.log(graphicLayerLength);
-    // };
-    newGraphicLayerView.appendChild(gridView);
-  });
-
-  newGraphicLayer.appendChild(newGraphicLayerView);
-
-  graphicLayerListDOM.appendChild(newGraphicLayer);
-};
-
 const createNewToolLayer = () => {
-  const layerLength = layerListDOM.children.length - 1;
-
-  const newLayer = document.createElement("li");
-  newLayer.classList.add("layer");
-  newLayer.classList.add(`layer-${layerLength}`);
-
-  const newLayerView = document.createElement("div");
-  newLayerView.classList.add("layer-view");
-
-  const newLayerTitle = document.createElement("p");
-  newLayerTitle.classList.add("layer-title");
-
-  // Controller
-  const newLayerControllerList = document.createElement("ul");
-  newLayerControllerList.classList.add("layer-controller-list");
-  newLayerControllerList.classList.add("hidden");
-
-  const newLayerController = document.createElement("li");
-  newLayerController.classList.add("layer-controller-item");
-
-  newLayerController.textContent = "Delete";
-
-  newLayerControllerList.appendChild(newLayerController);
-
-  newLayerTitle.textContent = `Layer ${layerLength}`;
-  newLayer.appendChild(newLayerView);
-  newLayer.appendChild(newLayerTitle);
-  newLayer.appendChild(newLayerControllerList);
-  newLayer.onclick = (e) => {
-    console.log(e.target);
-    if (e.target.textContent === "Delete") {
-      deleteLayer(layerLength);
-    } else {
-      console.log(layerLength);
-      changeLayerTool(layerLength);
-    }
-  };
-
-  layerListDOM.removeChild(createLayerDOM);
-  layerListDOM.appendChild(newLayer);
-  layerListDOM.appendChild(createLayerDOM);
-
-  changeLayerTool(layerLength);
+  layerToolList.createNewLayer();
 };
 
 // TODO: limit max layers
-const createNewLayer = () => {
-  createNewToolLayer();
-  createNewGraphicLayer();
-};
 
-const deleteLayer = (layerIndex) => {
-  console.log(layerIndex);
-  const listLayerTool = makeChildrenList(layerListDOM);
-  // console.log(listLayerTool, makeChildrenList(layerListDOM));
-  console.log(listLayerTool);
-  // Get element to delete
-  let layerToDelete;
-  listLayerTool.forEach((value) => {
-    // console.log(value.classList);
-    if (value.classList.contains(`layer-${layerIndex}`)) {
-      layerToDelete = value;
-    }
-  });
-  layerListDOM.removeChild(layerToDelete);
+createLayerDOM.onclick = () => {
+  layerToolList.createNewLayer();
 };
-
-createLayerDOM.onclick = () => createNewLayer();
