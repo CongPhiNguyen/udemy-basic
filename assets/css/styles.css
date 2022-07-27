@@ -8,27 +8,79 @@
   --primary-color: #ffe55c;
 }
 
-#page-container {
-  display: flex;
-  gap: 40px;
-}
-
-#learning-result {
-  border: 1px solid #333;
-  padding: 20px;
-}
-
-#mascot-container {
-  /* border: 1px solid #333; */
-}
-
 body {
   margin: auto;
   text-align: center;
   margin-top: 60px;
 }
 
-label {
+#page-container {
+  display: flex;
+  gap: 40px;
+  margin: auto;
+  max-width: 1200px;
+}
+
+#main-title {
+  margin-bottom: 20px;
+}
+
+#learning-result {
+  border: 1px solid #333;
+  padding: 20px;
+  margin: 20px;
+}
+
+#learning-result .accordion-item {
+  display: block;
+  width: 100%;
+  margin: 10px;
+  /* border: 1px solid #333; */
+}
+
+#learning-result .accordion-item .accordion-item-title {
+  cursor: pointer;
+  padding: 10px 10px 10px 40px;
+  background: #2980b9;
+  color: #fff;
+  width: 100%;
+  border-radius: 3px;
+  text-align: left;
+  font-size: 20px;
+}
+
+#learning-result .accordion-item.close .accordion-item-content {
+  height: 0px;
+  transition: height 1s ease-out;
+  transform: scaleY(0);
+  transition: transform 0.1s ease-out;
+  transform-origin: top;
+}
+
+#learning-result .accordion-item.open .accordion-item-content {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin: 0px 0px 10px 0px;
+  display: block;
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+}
+
+#learning-result .accordion-item.open .accordion-item-title {
+  margin: 0px;
+  border-top-left-radius: 3px 3px 0px 0px;
+  background-color: #bdc3c7;
+  color: #7f8c8d;
+}
+
+#mascot-container {
+  /* border: 1px solid #333; */
+}
+
+/* label {
   border: 1px solid #333;
   padding: 10px 20px;
   width: 80%;
@@ -68,4 +120,4 @@ li.list-item {
 li.list-item:hover {
   background-color: rgb(203, 250, 244);
   cursor: pointer;
-}
+} */
