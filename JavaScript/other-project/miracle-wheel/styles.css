@@ -22,9 +22,22 @@
   top: 50%;
   transform-origin: 0% 0%;
 }
+
+.text {
+  position: absolute;
+  left: 50%;
+  top: 540%;
+  transform-origin: 0% 0%;
+  font-size: 16px;
+  transform: rotate(13deg);
+}
+
 @keyframes wheel {
   0% {
     transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
   }
   100% {
     transform: rotate(360deg);
