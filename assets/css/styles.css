@@ -1,13 +1,31 @@
 * {
   box-sizing: border-box;
-  margin: 10px;
+  margin: 0px;
   padding: 0;
+}
+
+:root {
+  --primary-color: #ffe55c;
+}
+
+#page-container {
+  display: flex;
+  gap: 40px;
+}
+
+#learning-result {
+  border: 1px solid #333;
+  padding: 20px;
+}
+
+#mascot-container {
+  /* border: 1px solid #333; */
 }
 
 body {
   margin: auto;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 label {

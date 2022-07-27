@@ -1,0 +1,331 @@
+#mascot-container {
+  font-size: 8px;
+  position: relative;
+}
+
+#taptap-mascot {
+  margin: auto;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 10em;
+  top: 5em;
+}
+
+#mascot-head {
+  width: 20em;
+  height: 20em;
+  background: linear-gradient(
+    -45deg,
+    #f5f5d0 5%,
+    #ebd46e 23%,
+    #ffe55c 80%,
+    #f5f5d0 90%
+  );
+  position: relative;
+  border-radius: 100%;
+  z-index: 4;
+  animation: head-bounce 1s infinite;
+}
+
+@keyframes head-bounce {
+  10% {
+    transform: translateY(0.2em);
+  }
+  30% {
+    transform: translateY(0em);
+  }
+}
+
+#lemon {
+  position: absolute;
+  width: 8em;
+  height: 8em;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  top: -6%;
+}
+
+#leaf {
+  background-color: #59ad7b;
+  width: 5em;
+  height: 5em;
+  border-radius: 0% 100%;
+  position: absolute;
+  top: -46%;
+  left: -50%;
+  transform-origin: 100% 100%;
+  animation: leaf-wave infinite 3s;
+}
+
+@keyframes leaf-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(10deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+}
+
+#mascot-face {
+  width: 17em;
+  height: 15em;
+  position: absolute;
+  top: 17%;
+  left: 0.4em;
+  background-color: #fff;
+  clip-path: ellipse(50% 50% at 50% 50%);
+}
+
+/* Eye */
+#mascot-face .eye {
+  width: 20%;
+  height: 17%;
+  background-color: rgb(70, 70, 70);
+  position: absolute;
+  top: 30%;
+  border-radius: 50%;
+  transform-origin: 0% 0%;
+  animation: moveEye infinite 1s;
+}
+
+#mascot-face .eye .eye-lid {
+  position: absolute;
+  width: 150%;
+  height: 100%;
+  background-color: #fff;
+  top: -20%;
+  left: -60%;
+  border-radius: 50%;
+}
+
+#mascot-face .eye.left {
+  left: 10%;
+}
+
+#mascot-face .eye.right {
+  right: 10%;
+}
+
+@keyframes moveEye {
+  30% {
+    transform: translateY(0.5em);
+  }
+  60% {
+    transform: translateY(0em);
+  }
+}
+
+/* Beak */
+
+#mascot-face .beak {
+  --beak-top: 64%;
+  height: 10%;
+  background-color: #fef17b;
+  border-radius: 50%;
+  position: absolute;
+  transform-origin: 0% 0%;
+}
+
+#mascot-face .beak.top {
+  width: 26%;
+  top: var(--beak-top);
+  left: 30%;
+  animation: beak-top-move infinite 1s;
+}
+
+#mascot-face .beak.bottom {
+  width: 20%;
+  top: calc(var(--beak-top) + 5%);
+  left: 33%;
+  animation: beak-bottom-move infinite 1s;
+}
+
+@keyframes beak-top-move {
+  30% {
+    transform: translateY(0.2em);
+  }
+  60% {
+    transform: translateY(0em);
+  }
+}
+
+@keyframes beak-bottom-move {
+  30% {
+    transform: translateY(0.3em);
+  }
+  60% {
+    transform: translateY(0em);
+  }
+}
+
+/* Flush */
+
+#mascot-face .flush {
+  width: 15%;
+  height: 10%;
+  background-color: pink;
+  top: 48%;
+  border-radius: 50%;
+  position: absolute;
+  animation: flush-move infinite 1s;
+}
+
+#mascot-face .flush.left {
+  left: 10%;
+}
+
+#mascot-face .flush.right {
+  right: 10%;
+}
+
+@keyframes flush-move {
+  30% {
+    transform: translateY(0.2em);
+  }
+  60% {
+    transform: translateY(0em);
+  }
+}
+
+/* Body */
+#mascot-body {
+  width: 16em;
+  height: 22em;
+  background: linear-gradient(-45deg, #ebd46e 10%, #ffe55c 80%);
+  border-radius: 20% 20% 80% 80%;
+  position: absolute;
+  top: 76%;
+  z-index: 2;
+  animation: infinite 1s body-bounce;
+}
+
+@keyframes body-bounce {
+  10% {
+    transform: translateY(0.1em);
+  }
+  30% {
+    transform: translateY(0em);
+  }
+}
+
+#mascot-body .arm {
+  width: 40%;
+  height: 80%;
+  background: linear-gradient(
+    -45deg,
+    #f5f5d0 1%,
+    #ebd46e 10%,
+    #ffe55c 80%,
+    #f5f5d0 99%
+  );
+  border-radius: 30% 30% 30% 120%;
+  z-index: -1;
+  position: absolute;
+}
+
+#mascot-body .arm.left {
+  top: 20%;
+  left: -4%;
+  transform-origin: top left;
+  transform: rotate(100deg) scaleX(-1);
+  animation: 3s linear infinite wave-left-arm;
+}
+
+#mascot-body .arm.right {
+  top: -7%;
+  right: -43%;
+  transform: rotate(-45deg) scaleX(-1);
+  transform-origin: top left;
+  animation: 2s linear infinite wave-right-arm;
+}
+
+@keyframes wave-left-arm {
+  20% {
+    transform: rotate(110deg) scaleX(-1);
+  }
+  40% {
+    transform: rotate(120deg) scaleX(-1);
+  }
+}
+
+@keyframes wave-right-arm {
+  20% {
+    transform: rotate(-30deg) scaleX(-1);
+  }
+  40% {
+    transform: rotate(-40deg) scaleX(-1);
+  }
+}
+
+#leg-container {
+  width: 15em;
+  height: 20em;
+  position: absolute;
+  top: 88%;
+}
+
+#leg-container .leg {
+  width: 40%;
+  height: 70%;
+  background: linear-gradient(
+    -45deg,
+    #f5f5d0 1%,
+    #ebd46e 10%,
+    #ffe55c 80%,
+    #f5f5d0 99%
+  );
+  /* border-radius: 30% 30% 30% 120%; */
+  z-index: 1;
+  position: absolute;
+}
+
+#leg-container .leg.left {
+  top: 55%;
+  left: 32%;
+  transform-origin: top left;
+  transform: scaleX(-1);
+  border-radius: 10% 10% 70% 10%;
+  animation: walking-leg-left 2s infinite linear;
+}
+
+@keyframes walking-leg-left {
+  0% {
+    transform: scaleY(1) scaleX(-1);
+  }
+  50% {
+    transform: scaleY(0.8) scaleX(-1);
+  }
+  100% {
+    transform: scaleY(1) scaleX(-1);
+  }
+}
+
+#leg-container .leg.right {
+  top: 55%;
+  right: -45%;
+  transform-origin: top left;
+  transform: scaleX(-1);
+  border-radius: 10% 10% 10% 70%;
+  animation: walking-leg-right 2s infinite linear;
+}
+
+@keyframes walking-leg-right {
+  0% {
+    transform: scaleY(0.8) scaleX(-1);
+  }
+  50% {
+    transform: scaleY(1) scaleX(-1);
+  }
+  100% {
+    transform: scaleY(0.8) scaleX(-1);
+  }
+}
