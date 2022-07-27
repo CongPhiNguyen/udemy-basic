@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regex Rendering</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="main-app-wrapper">
+      <div id="main-app-container">
+        <section id="heading">
+          <h1 class="title">Regex rendering</h1>
+        </section>
+        <section id="main-section">
+          <p id="rendering-box">/[A-Za-z]/</p>
+        </section>
+        <div id="selection-section">
+          <select
+            name="feature-list"
+            id="selection-list"
+            aria-label="feature-list"
+          ></select>
+        </div>
+        <section id="regex-test-section">
+          <label for="string-test" class="string-label"> Test String </label>
+          <input type="text" id="string-test" />
+          <button id="check-button">Check String</button>
+          <p id="check-result">False</p>
+        </section>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>

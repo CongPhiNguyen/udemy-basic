@@ -1,0 +1,80 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#main-app-wrapper {
+  width: 100%;
+}
+
+#main-app-container {
+  border: 4px double #333;
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 10px 20px;
+}
+
+#main-app-container .title {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#rendering-box {
+  padding: 10px 20px;
+  border: 2px solid #333;
+  margin-bottom: 20px;
+}
+
+#selection-list {
+  padding: 4px 10px;
+  margin-bottom: 20px;
+}
+
+#selection-list .selection-item {
+  padding: 4px 10px;
+}
+
+#regex-test-section {
+  display: flex;
+  align-items: center;
+}
+
+#regex-test-section .string-label {
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+#regex-test-section #string-test {
+  padding: 10px;
+
+  margin-right: 14px;
+}
+
+#check-button {
+  padding: 10px;
+  font-size: 14px;
+}
+
+#check-result {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.input-container {
+  margin-bottom: 40px;
+}
+
+.input-container .input-label {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.input-container .input-box {
+  font-size: 14px;
+  padding: 4px 10px;
+}
