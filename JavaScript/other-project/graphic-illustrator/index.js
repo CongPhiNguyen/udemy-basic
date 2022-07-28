@@ -156,10 +156,10 @@ class LayerGraphicItem {
   //   //Delete all child
   //   listShapeDOM();
   // };
-  addShape = () => {
+  addShape = (dataIcon) => {
     let currentShapeDOM = document.createElement("span");
     currentShapeDOM.classList.add("iconify");
-    currentShapeDOM.setAttribute("data-icon", "bi:triangle");
+    currentShapeDOM.setAttribute("data-icon", dataIcon);
     currentShapeDOM.style.position = "absolute";
     let randomX = Math.round(Math.random() * 600);
     let randomY = Math.round(Math.random() * 400);
@@ -257,12 +257,12 @@ createLayerDOM.onclick = () => {
 const drawToolItems = document.querySelectorAll(".draw-tool-item");
 drawToolItems.forEach((val) => {
   val.onclick = (e) => {
-    console.log(e.target);
+    console.log(e.target.getAttribute("data-icon"));
     let currentLayer = layerToolList.getCurrentLayer();
     // console.log(currentLayer.graphicLayer.graphicLayerDOM);
     // currentLayer.graphicLayer
     // let layerView = makeChildrenList(currentLayer.graphicLayer.graphicLayerDOM)[0];
     // console.log(layerView[0]);
-    currentLayer.graphicLayer.addShape();
+    currentLayer.graphicLayer.addShape(e.target.getAttribute("data-icon"));
   };
 });

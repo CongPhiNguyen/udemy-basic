@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: grey;
+}
+
+.pic_container {
+  margin: 0;
+  padding: 0;
+  width: 80vw;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-auto-rows: 10px;
+  background-color: #000;
+  justify-content: center;
+  padding-bottom: 300px;
+}
+
+.pic {
+  padding: 10px;
+  margin: 15px 10px;
+
+  background-color: red;
+  border-radius: 16px;
+}
+
+.pic_small {
+  grid-row-end: span 26;
+}
+
+.pic_medium {
+  grid-row-end: span 33;
+}
+
+.pic_large {
+  grid-row-end: span 45;
+}
