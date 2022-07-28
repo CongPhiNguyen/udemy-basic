@@ -4,6 +4,27 @@
   padding: 0;
 }
 
+/* Specify scroll barx   */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 :root {
   --primary-color: #ffe55c;
 }
@@ -11,7 +32,7 @@
 body {
   margin: auto;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 25px;
 }
 
 #page-container {
@@ -22,13 +43,17 @@ body {
 }
 
 #main-title {
-  margin-bottom: 20px;
+  /* margin-bottom: px; */
 }
 
 #learning-result {
   border: 1px solid #333;
   padding: 20px;
   margin: 20px;
+  width: 60vw;
+  height: 75vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #learning-result .accordion-item {
@@ -76,8 +101,28 @@ body {
   color: #7f8c8d;
 }
 
-#mascot-container {
-  /* border: 1px solid #333; */
+.accordion-item-content .list-item {
+  list-style: none;
+  border: 1px solid #333;
+  padding: 8px 10px 8px 20px;
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.list-item a {
+  text-decoration: none;
+}
+.list-item .item-icon-view-code {
+  position: absolute;
+  top: 26%;
+  right: 3%;
+}
+.list-item .item-icon-view-code:hover {
+  cursor: pointer;
+  opacity: 40%;
 }
 
 /* label {

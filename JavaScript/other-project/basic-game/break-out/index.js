@@ -1,5 +1,5 @@
-const GRID_WIDTH = 400;
-const GRID_HEIGHT = 200;
+const GRID_WIDTH = 600;
+const GRID_HEIGHT = 400;
 
 class Grid {
   _gridDOM;
@@ -112,7 +112,7 @@ const moveUser = (e) => {
 
       break;
     case "ArrowRight":
-      if (user.x <= GRID_WIDTH - velocity - blockWidth) {
+      if (user.x <= GRID_WIDTH - velocity - GRID_WIDTH / 4) {
         user.x += velocity;
         updateUser();
       }
@@ -143,7 +143,7 @@ class Ball {
     this.x = x;
     this.y = y;
   }
-  velocity = 20;
+  velocity = 10;
   xDirection = -1;
   yDirection = -1;
   step = 2;
