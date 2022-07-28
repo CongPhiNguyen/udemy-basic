@@ -18,6 +18,7 @@ main {
   display: flex;
   justify-content: center;
   margin-top: 10rem;
+  position: relative;
 }
 
 #taptap-mascot {
@@ -27,6 +28,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  left: 300px;
 }
 
 #mascot-head {
@@ -342,4 +344,41 @@ main {
   100% {
     transform: scaleY(0.8) scaleX(-1);
   }
+}
+
+#taptap-controller {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  border: 1px solid #333;
+  right: 100px;
+}
+
+/* shake head */
+@keyframes shake-head {
+  0% {
+    transform: translateX(4px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(4px);
+  }
+}
+
+.check-box-container {
+  width: 100%;
+  font-size: 20px;
+}
+
+input[type="checkbox"] {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+  margin: 20px 20px;
 }

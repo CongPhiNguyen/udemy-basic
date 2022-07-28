@@ -1,5 +1,5 @@
 #page-wrapper {
-  padding: 20px;
+  padding: 10px;
 }
 
 #back-to-game {
@@ -12,6 +12,11 @@
   cursor: pointer;
 }
 
+#instruction {
+  font-size: 18px;
+  text-align: center;
+}
+
 #game-container {
 }
 
@@ -19,7 +24,7 @@
   text-align: center;
   text-transform: uppercase;
   font-size: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .grid {
