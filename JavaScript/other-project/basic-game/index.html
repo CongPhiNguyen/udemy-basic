@@ -4,9 +4,62 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Basic game</title>
+    <link
+      rel="shortcut icon"
+      href="https://www.lib.washington.edu/ougl/images/gaming/"
+      type="image/x-icon"
+    />
+    <style>
+      body {
+        background-color: aliceblue;
+        padding: 12px;
+        text-align: center;
+      }
+      h1 {
+        text-transform: uppercase;
+      }
+      .game-container {
+        text-align: center;
+        display: flex;
+        gap: 16px;
+      }
+
+      .game-item {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .game-image {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+    </style>
   </head>
+
   <body>
-    <div>Basic game</div>
+    <h1>Basic game</h1>
+    <div class="game-container">
+      <div class="game-item">
+        <img
+          class="game-image"
+          src="https://miro.medium.com/max/1400/1*_ayF4_DvXG8jBRVDxVbv_A.gif"
+          alt=""
+          onclick="document.querySelector('#break-out').click()"
+        />
+        <a href="./break-out/" id="break-out">Break out game</a>
+      </div>
+      <div class="game-item">
+        <img
+          class="game-image"
+          src="https://cdn.dribbble.com/users/1035257/screenshots/4835179/2.gif"
+          alt=""
+          onclick="document.querySelector('#space-invader').click()"
+        />
+        <a href="./space-invader/" id="space-invader">Space invader</a>
+      </div>
+    </div>
   </body>
 </html>

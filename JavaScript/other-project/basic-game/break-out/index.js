@@ -18,15 +18,14 @@ class Grid {
 }
 
 let grid = new Grid(document.querySelector("#grid"), GRID_WIDTH, GRID_HEIGHT);
-
 const blockWidth = 100;
 const blockHeight = 20;
 const blockColumn = GRID_WIDTH / blockWidth;
 const blockRow = GRID_HEIGHT / 4 / blockHeight;
-const userWidth = GRID_WIDTH / 4;
+const userWidth = GRID_WIDTH / 3;
 const userHeight = 20;
 
-const velocity = 10;
+const velocity = 6;
 
 class AbstractBlock {
   x;
@@ -46,7 +45,7 @@ class User extends AbstractBlock {
     super();
     this.x = x;
     this.y = y;
-    this.width = width || GRID_WIDTH / 4;
+    this.width = width || GRID_WIDTH / 3;
     this.height = height || 20;
   }
 }
@@ -102,42 +101,58 @@ const updateUser = () => {
   user.object.style.top = `${user.y}px`;
 };
 
+let moveUserTimer = null;
+
 const moveUser = (e) => {
   switch (e.key) {
     case "ArrowLeft":
-      if (user.x >= velocity) {
-        user.x -= velocity;
-        updateUser();
-      }
-
+      clearInterval(moveUserTimer);
+      moveUserTimer = setInterval(() => {
+        if (user.x >= velocity) {
+          user.x -= velocity;
+          updateUser();
+        }
+      }, 4);
       break;
     case "ArrowRight":
-      if (user.x <= GRID_WIDTH - velocity - GRID_WIDTH / 4) {
-        user.x += velocity;
-        updateUser();
-      }
+      clearInterval(moveUserTimer);
+      moveUserTimer = setInterval(() => {
+        if (user.x <= GRID_WIDTH - velocity - GRID_WIDTH / 4) {
+          user.x += velocity;
+          updateUser();
+        }
+      }, 4);
       break;
     case "ArrowUp": {
-      if (user.y >= 0) {
-        user.y -= velocity;
-        updateUser();
-      }
+      clearInterval(moveUserTimer);
+      moveUserTimer = setInterval(() => {
+        if (user.y >= 0) {
+          user.y -= velocity;
+          updateUser();
+        }
+      }, 4);
       break;
     }
     case "ArrowDown": {
-      if (user.y <= GRID_HEIGHT - blockHeight - 10) {
-        user.y += velocity;
-        updateUser();
-      }
+      clearInterval(moveUserTimer);
+      moveUserTimer = setInterval(() => {
+        if (user.y <= GRID_HEIGHT - blockHeight - 10) {
+          user.y += velocity;
+          updateUser();
+        }
+      }, 4);
       break;
     }
     default:
       break;
   }
 };
+const removeTimer = () => {
+  clearInterval(moveUserTimer);
+};
 
 document.addEventListener("keydown", moveUser);
-
+document.addEventListener("keyup", removeTimer);
 class Ball {
   constructor(x = GRID_WIDTH / 2 - 10, y = GRID_HEIGHT - 70) {
     this.x = x;
@@ -153,7 +168,7 @@ class Ball {
 
 // render ball
 const ball = new Ball();
-let gameTimer = null;
+let gameTimerList = [];
 
 const drawBall = () => {
   ball.object = document.createElement("div");
@@ -181,7 +196,7 @@ const checkCollision = () => {
         });
         if (blocks.length == 0) {
           displayMessage("Congratulation\nYou won!");
-          clearInterval(gameTimer);
+          gameTimerList.forEach((timer) => clearInterval(timer));
         }
       }
     }
@@ -203,7 +218,7 @@ const checkCollision = () => {
   else if (ball.x <= 0) ball.xDirection = 1;
   else if (ball.y > GRID_HEIGHT - 30) {
     displayMessage("Game over!\nYou lost");
-    clearInterval(gameTimer);
+    gameTimerList.forEach((timer) => clearInterval(timer));
   }
 
   return false;
@@ -216,10 +231,23 @@ const updateBall = () => {
   ball.y += ball.step * ball.yDirection;
   ball.object.style.left = ball.x + "px";
   ball.object.style.top = ball.y + "px";
+  console.log(1);
 };
 
-gameTimer = setInterval(updateBall, ball.velocity);
+// gameTimer = setInterval(updateBall, ball.velocity);
+let mode = "Easy 🐣🐣🐣";
+const modeDOM = document.querySelector("#mode");
 
+window.addEventListener("keydown", (e) => {
+  if (e.code === "Space") {
+    let gameTimer = setInterval(updateBall, ball.velocity);
+    gameTimerList.push(gameTimer);
+    if (gameTimerList.length === 2) modeDOM.textContent = "Medium 🐥🐥🐥";
+    else if (gameTimerList.length > 2) modeDOM.textContent = "Hard 🦅🦅🦅";
+  }
+});
+
+// Play again
 playAgain = () => {
   window.location.reload();
 };
