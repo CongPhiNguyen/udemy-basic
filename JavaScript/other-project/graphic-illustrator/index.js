@@ -135,9 +135,17 @@ class LayerGraphicItem {
 
     const newGraphicLayerView = document.createElement("div");
     newGraphicLayerView.classList.add("layer-view");
-    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    const randomBetween = (min, max) =>
+      min + Math.floor(Math.random() * (max - min + 1));
+    const r = randomBetween(0, 255);
+    const g = randomBetween(0, 255);
+    const b = randomBetween(0, 255);
+    const a = randomBetween(0, 100) / 100;
+    const rgba = `rgba(${r},${g},${b},${a})`;
+    console.log(rgba);
+    // const randomColor = Math.floor(Math.random() * 16777215).toString(16);
     // console.log(randomColor);
-    newGraphicLayerView.style.backgroundColor = `#${randomColor}`;
+    newGraphicLayerView.style.backgroundColor = rgba;
 
     // const gridList = createGridDOM(800, 500, 20);
     // gridList.forEach((gridView) => {
@@ -161,6 +169,13 @@ class LayerGraphicItem {
     currentShapeDOM.classList.add("iconify");
     currentShapeDOM.setAttribute("data-icon", dataIcon);
     currentShapeDOM.style.position = "absolute";
+    const randomBetween = (min, max) =>
+      min + Math.floor(Math.random() * (max - min + 1));
+    const r = randomBetween(0, 255);
+    const g = randomBetween(0, 255);
+    const b = randomBetween(0, 255);
+    const rgb = `rgba(${r},${g},${b})`;
+    currentShapeDOM.style.color = rgb;
     let randomX = Math.round(Math.random() * 600);
     let randomY = Math.round(Math.random() * 400);
     let dataHeight = 100;
